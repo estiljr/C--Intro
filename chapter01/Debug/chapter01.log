@@ -1,14 +1,9 @@
-﻿Build started 6/12/2013 10:28:15 PM.
-Project "C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\chapter01\chapter01.vcxproj" on node 2 (Build target(s)).
-ClCompile:
-  C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\chapter01.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt frame.cpp
-  frame.cpp
-Link:
-  C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\Debug\chapter01.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\Debug\chapter01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\Debug\chapter01.lib" /MACHINE:X86 Debug\frame.obj
-  Debug\stdafx.obj
-  chapter01.vcxproj -> C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\Debug\chapter01.exe
-Done Building Project "C:\Users\Bebom\Documents\Visual Studio 2012\Projects\C++Intro\chapter01\chapter01.vcxproj" (Build target(s)).
+﻿Build started 24/06/2013 13:23:54.
+     1>Project "C:\Users\estiljr\Documents\Visual Studio 2012\Projects\C++Intro\chapter01\chapter01.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         chapter01.vcxproj -> C:\Users\estiljr\Documents\Visual Studio 2012\Projects\C++Intro\Debug\chapter01.exe
+     1>Done Building Project "C:\Users\estiljr\Documents\Visual Studio 2012\Projects\C++Intro\chapter01\chapter01.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:12.13
+Time Elapsed 00:00:00.41
