@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C++Intro", "C++Intro\C++Intro.vcxproj", "{9C285DBA-4E2F-4B0D-9AC0-94BE379BE4A0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chapter01", "chapter01\chapter01.vcxproj", "{97C0C699-B11F-4FF8-B124-CD2D0AF6D25D}"
@@ -8,6 +8,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chapter02", "chapter02\chapter02.vcxproj", "{CF5194BB-A464-4AB1-8B28-58B8EBCA77B4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReadWrite", "ReadWrite\ReadWrite.vcxproj", "{7A9B835D-1318-4926-A224-CC32745397FE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GridToXYZ", "GridToXYZ\GridToXYZ.vcxproj", "{781D25B7-79E8-4206-A96B-74A82CE3DD6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{7A9B835D-1318-4926-A224-CC32745397FE}.Debug|Win32.Build.0 = Debug|Win32
 		{7A9B835D-1318-4926-A224-CC32745397FE}.Release|Win32.ActiveCfg = Release|Win32
 		{7A9B835D-1318-4926-A224-CC32745397FE}.Release|Win32.Build.0 = Release|Win32
+		{781D25B7-79E8-4206-A96B-74A82CE3DD6C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{781D25B7-79E8-4206-A96B-74A82CE3DD6C}.Debug|Win32.Build.0 = Debug|Win32
+		{781D25B7-79E8-4206-A96B-74A82CE3DD6C}.Release|Win32.ActiveCfg = Release|Win32
+		{781D25B7-79E8-4206-A96B-74A82CE3DD6C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
