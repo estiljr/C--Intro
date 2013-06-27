@@ -22,9 +22,9 @@ int main(int argc, const char* argv[])
 		}
 		const int ncols = atoi(LineQuery[0].c_str()); 
 		const int nrows = atoi(LineQuery[1].c_str()); 
-		int xllcorner = atoi(LineQuery[2].c_str()); 
-		int yllcorner = atoi(LineQuery[3].c_str());
-		int dx = atoi(LineQuery[4].c_str());
+		double xllcorner = atof(LineQuery[2].c_str()); 
+		double yllcorner = atof(LineQuery[3].c_str());
+		double dx = atof(LineQuery[4].c_str());
 		int nodata = atoi(LineQuery[5].c_str());
 		outputFile << "ncols ,"<< ncols<< endl;					cout << "ncols: "<< ncols<< endl; 
 		outputFile << "nrows ," << nrows << endl;				cout << "nrows: " << nrows << endl; 
@@ -33,16 +33,14 @@ int main(int argc, const char* argv[])
 		outputFile << "cellsize ," << dx << endl;				cout << "cellsize: " << dx << endl;
 		outputFile << "nodata ," << nodata << endl;				cout << "nodata: " << nodata << endl;
 		outputFile << "x"<<","<<"y"<<","<<"z"<<endl;
-		cout << "Converting Grid to XYZ..." << endl;
+		cout<<"Reading input Grid file..."<<endl;
 
 		string** arr = new string*[nrows];
 		for(int a = 0; a < nrows; a++)
 			arr[a] = new string[ncols];
-		string* col = new string[ncols];
 		double* x = new double[nrows];
 		double* y = new double[ncols];
 
-	//	for (int i = 0; i < nrows; i++){
 		for (int i = nrows-1; i >=0; i--){
 			for (int j = 0; j < ncols; j++){
 				if (j==ncols -1)
@@ -51,20 +49,20 @@ int main(int argc, const char* argv[])
 					getline(inputFile,arr[i][j],' ');
 			}
 		} 
-		for (int i = 0; i < nrows; i++){
-			for(int j = 0; j < ncols; j++){
-				x[j] = xllcorner + dx*j + 0.5*dx;
-				y[i] = yllcorner + dx*i + 0.5*dx;
-		//		cout<<x[j]<<'\t'<<y[i]<<'\t'<<arr[i][j]<<endl;
-				outputFile<<x[j]<<','<<y[i]<<','<<arr[i][j]<<endl;
+		cout << "Converting Grid to XYZ..." << endl;
+		for (int m = 0; m < nrows; m++){
+			for(int n = 0; n < ncols; n++){
+				x[n] = double (xllcorner + dx*n + 0.5*dx);
+				y[m] = double (yllcorner + dx*m + 0.5*dx);
+				x[0] = 0.5*dx + dx*m;
+				cout<<x[n]<<','<<y[m]<<','<<arr[m][n]<<'\n';
 			}
 		}
-		//delete [] col; delete []x; delete [] y;
-		inputFile.close();
-		outputFile.close();
 		for (int i = 0; i < nrows; i++)
 			delete [] arr[i];
-		delete [] arr;
+		delete [] arr; delete [] x; delete [] y;
+		inputFile.close();
+		outputFile.close();
 	}
 	else cout << "The input file is not open!";
 	cout << "Process complete! Press any key to continue..." << endl;
