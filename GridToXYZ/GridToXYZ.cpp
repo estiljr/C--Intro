@@ -4,76 +4,63 @@
 #include <fstream>
 #include <iostream>
 #include <conio.h>
-#include <sstream>
+//#include <sstream>
 #include <string>
 using namespace std;
 
 int main(int argc, const char* argv[])
 {
-	ifstream inputFile(argv[1]);
-	ofstream outputFile("GridtoXYZ_output.csv");
+	ifstream input(argv[1]);
+	ofstream output("GridtoXYZ_output.csv");
 
-	string line[6], LineQuery[6];
-	if (inputFile.is_open()){
-		for (int x = 0; x <= 5; x++){
-			getline(inputFile,line[x]);											//getline(object from which characters are extracted, object where the extracted line is stored)
-			unsigned spacePosition = line[x].find(" ");
-			LineQuery[x] = line[x].substr(spacePosition);
-		}
-		const int ncols = atoi(LineQuery[0].c_str()); 
-		const int nrows = atoi(LineQuery[1].c_str()); 
-		double xllcorner = atof(LineQuery[2].c_str()); 
-		double yllcorner = atof(LineQuery[3].c_str());
-		double dx = atof(LineQuery[4].c_str());
-		int nodata = atoi(LineQuery[5].c_str());
-		outputFile << "ncols ,"<< ncols<< "\n";					cout << "ncols: "<< ncols<< "\n"; 
-		outputFile << "nrows ," << nrows << "\n";				cout << "nrows: " << nrows << "\n"; 
-		outputFile << "xllcorner ," << xllcorner << "\n";		cout << "xllcorner: " << xllcorner << "\n";
-		outputFile << "yllcorner ," << yllcorner << "\n";		cout << "yllcorner: " << yllcorner << "\n";
-		outputFile << "cellsize ," << dx << "\n";				cout << "cellsize: " << dx << "\n";
-		outputFile << "nodata ," << nodata << "\n";				cout << "nodata: " << nodata << "\n";
-		outputFile << "i-index ,"<<"j-index ,"<<"x ,"<<"y ,"<<"z"<<"\n";
-		cout<<"Reading input Grid file..."<<"\n";
+	int ncols, nrows, i_index, j_index;
+	double xll, yll, dx, nodata, val, x, y;
+	char nan[20];
 
-		string** arr = new string*[nrows];
-		for(int a = 0; a < nrows; a++)
-			arr[a] = new string[ncols];
-		double* x = new double[nrows];
-		double* y = new double[ncols];
-		int* i_index = new int[nrows];
-		int* j_index = new int[ncols];
+	if (input.is_open()){
+		input>>nan;		cout<<endl;
+		input>>ncols;	cout<<"ncols: "<<ncols<<endl;			output<<"ncols ,"<<ncols<<endl;
+		input>>nan;
+		input>>nrows;	cout<<"nrows: "<<nrows<<endl;			output<<"nrows ,"<<nrows<<endl;
+		input>>nan;
+		input>>xll;		cout<<"xllcorner: "<<xll<<endl;			output<<"xllcorner ,"<<xll<<endl;
+		input>>nan;
+		input>>yll;		cout<<"yllcorner: "<<yll<<endl;			output<<"yllcorner ,"<<yll<<endl;
+		input>>nan;
+		input>>dx;		cout<<"cellsize: "<<dx<<endl;			output<<"cellsize ,"<<dx<<endl;
+		input>>nan;
+		input>>nodata;	cout<<"nodata_value: "<<nodata<<endl;	output<<"nodata_value ,"<<nodata<<endl;
 
-		for (int i = nrows-1; i >=0; i--){
-			for (int j = 0; j < ncols; j++){
-				if (j==ncols -1)
-					getline(inputFile,arr[i][j],'\n');
-				else
-					getline(inputFile,arr[i][j],' ');
-			}
-		} 
+		double** z = new double*[nrows];
+		for (int i=0; i<nrows; i++)
+			z[i] = new double[ncols];
 
-		cout << "Converting Grid to XYZ..." << "\n";
-		for (int m = 0; m < nrows; m++){
-			for(int n = 0; n < ncols; n++){
-				x[n] = xllcorner + dx*n + 0.5*dx;
-				y[m] = yllcorner + dx*m + 0.5*dx;
-				j_index[n] = 1+n;
-				i_index[m] = 1+m;
-				outputFile.precision(10);
-				outputFile<<i_index[m]<<','<<j_index[n]<<','<<x[n]<<','<<y[m]<<','<<arr[m][n]<<'\n';
+		output<<"i-index,j-index,x,y,z"<<endl; cout<<endl;
+		cout<<"Reading input Grid file..."<<endl;
+		for (int i=nrows-1; i>=0; i--){
+			for(int j=0; j<ncols; j++){
+				input>>val;
+				z[i][j] = val;
 			}
 		}
-
-		cout<<"Deallocating memory..."<< "\n";
-		for (int i = 0; i < nrows; i++)
-			delete [] arr[i];
-		delete [] arr; //delete [] x; delete [] y;
-		inputFile.close();
-		outputFile.close();
+		cout << "Converting Grid to XYZ..." <<endl;
+		for (int i=0; i<nrows; i++){
+			for (int j=0; j<ncols; j++){
+				x = xll + dx*j + dx*0.5;
+				y = yll + dx*i + dx*0.5;
+				i_index = 1+i;
+				j_index = 1+j;
+				output<< i_index <<","<< j_index <<","<< x << ","<< y <<","<< z[i][j] <<endl;
+			}
+		}
+		delete [] z;
+		input.close();
+		output.close();
 	}
-	else cout << "The input file is not open!";
-	cout << "Process complete! Press any key to continue..." << "\n";
+	else cout << "Input file not loaded!";
+	cout << "Process complete! Press any key to continue..." << endl;	
 	_getch();
 	return 0;
+	
 }
 
