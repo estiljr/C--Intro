@@ -50,6 +50,7 @@ int main(int argc, const char* argv[])
 				y = yll + dx*i + dx*0.5;
 				i_index = 1+i;
 				j_index = 1+j;
+				output.precision(15);
 				output<< i_index <<","<< j_index <<","<< x << ","<< y <<","<< z[i][j] <<endl;
 			}
 		}
