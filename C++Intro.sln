@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GridToXYZ", "GridToXYZ\Grid
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chapter03", "chapter03\chapter03.vcxproj", "{3CD6516C-9590-4F71-A673-0C576A0EA14B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chapter04", "chapter04\chapter04.vcxproj", "{1A84692C-765D-4E40-BC09-2FCF7B07F826}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{3CD6516C-9590-4F71-A673-0C576A0EA14B}.Debug|Win32.Build.0 = Debug|Win32
 		{3CD6516C-9590-4F71-A673-0C576A0EA14B}.Release|Win32.ActiveCfg = Release|Win32
 		{3CD6516C-9590-4F71-A673-0C576A0EA14B}.Release|Win32.Build.0 = Release|Win32
+		{1A84692C-765D-4E40-BC09-2FCF7B07F826}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1A84692C-765D-4E40-BC09-2FCF7B07F826}.Debug|Win32.Build.0 = Debug|Win32
+		{1A84692C-765D-4E40-BC09-2FCF7B07F826}.Release|Win32.ActiveCfg = Release|Win32
+		{1A84692C-765D-4E40-BC09-2FCF7B07F826}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
